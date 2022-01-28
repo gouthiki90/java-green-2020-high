@@ -4,6 +4,7 @@ public class StringCollectionEx01 {
     public static void main(String[] args) {
         // StringBuffer는 자원을 동기화 한다.
         StringBuffer sb = new StringBuffer();
+        
         // 오브젝트라서 모든 타입 사용 가능
         // 메모리 공간 관리 효율성 좋음
         // 가독성이 좋음
