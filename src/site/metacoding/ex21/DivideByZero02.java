@@ -23,7 +23,7 @@ public class DivideByZero02 {
                 System.out.println(e.getMessage());
                 System.out.println("========");
                 e.printStackTrace();
-                sc.nextLine(); // 버퍼를 비운다.
+                // sc.nextLine(); // 버퍼를 비운다.
             }
         }
 
