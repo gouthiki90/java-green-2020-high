@@ -36,11 +36,6 @@ public class EventEx02 extends JFrame implements UserInterface {
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		new EventEx02();
-
-	}
-
 	@Override
 	public void initSetting() {
 		setSize(500, 500);
@@ -99,4 +94,8 @@ public class EventEx02 extends JFrame implements UserInterface {
 
 	}
 
+	public static void main(String[] args) {
+		new EventEx02();
+
+	}
 }
