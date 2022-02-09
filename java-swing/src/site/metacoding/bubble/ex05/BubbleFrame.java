@@ -1,4 +1,4 @@
-package site.metacoding.bubble.ex04;
+package site.metacoding.bubble.ex05;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -16,6 +16,8 @@ public class BubbleFrame extends JFrame {
 
 	private JLabel backgroundMap;
 	private Player player;
+
+	int count = 0;
 
 	public BubbleFrame() {
 		initObject();
@@ -66,6 +68,12 @@ public class BubbleFrame extends JFrame {
 					if (!player.isLeft()) {
 						player.left();
 					}
+				} else if (e.getKeyCode() == KeyEvent.VK_UP) { // 이것을 막으면 이벤트 루프 등록을 안 함
+					if (!player.isJump()) {
+						System.out.println("count : " + count);
+						count++;
+						player.jump(); // 메서드 내부에서 IF 분기 처리는 이벤트 루프에 등록 되지만 실행되지 않음
+					}
 				}
 
 			}
@@ -91,5 +99,4 @@ public class BubbleFrame extends JFrame {
 		new BubbleFrame();
 
 	}
-
 }

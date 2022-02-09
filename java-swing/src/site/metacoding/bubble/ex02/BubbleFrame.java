@@ -1,4 +1,4 @@
-package site.metacoding.bubble.ex02;
+ package site.metacoding.bubble.ex02;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
