@@ -39,13 +39,16 @@ public class BackgroundMapService implements Runnable {
 				Color rightColor = new Color(image.getRGB(player.getX() + 50 + 15, player.getY() + 25));
 
 				System.out.println(image.getRGB(player.getX(), player.getY() + 50 + 5));
+
 				int bottomColor = image.getRGB(player.getX() + 10, player.getY() + 50 + 5) // -1
 						+ image.getRGB(player.getX() + 50 - 10, player.getY() + 50 + 5); // -1
 
 				if (bottomColor != -2) { // 바텀 충돌 상태
 					player.setDown(false);
 				} else if (bottomColor == -2) {
-					player.down();
+					if (player.isDown() == false && player.isUp() == false) { // 다운 상태도 업 상태도 아닐 때 내려가기
+						player.down();
+					}
 				}
 
 				if (leftColor.getRed() == 255 && leftColor.getGreen() == 0 && leftColor.getBlue() == 0) {

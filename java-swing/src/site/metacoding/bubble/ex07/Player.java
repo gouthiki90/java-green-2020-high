@@ -25,6 +25,15 @@ public class Player extends JLabel { // JFrame위에 올려놓았다.
 
 	private boolean leftWallCrash;
 	private boolean rightWallCrash;
+	private boolean downWallCrash;
+
+	public boolean isDownWallCrash() {
+		return downWallCrash;
+	}
+
+	public void setDownWallCrash(boolean downWallCrash) {
+		this.downWallCrash = downWallCrash;
+	}
 
 	public boolean isUp() {
 		return up;
@@ -98,6 +107,7 @@ public class Player extends JLabel { // JFrame위에 올려놓았다.
 
 		leftWallCrash = false;
 		rightWallCrash = false;
+		downWallCrash = false;
 	}
 
 	public void left() {
@@ -142,7 +152,7 @@ public class Player extends JLabel { // JFrame위에 올려놓았다.
 	public void up() {
 		// for문으로 돌려야 한다. 키보드를 누를 때 내려가는 것으로 마무리 되기 때문.
 		up = true;
-		System.out.println("up");
+		// System.out.println("up");
 
 		new Thread(() -> {
 			for (int i = 0; i < 130 / JUMPSPEED; i++) {// JUMPSPEED가 바뀌어도 높이가 똑같음
@@ -165,7 +175,7 @@ public class Player extends JLabel { // JFrame위에 올려놓았다.
 	public void down() {
 		// for문으로 돌려야 한다. 키보드를 누를 때 내려가는 것으로 마무리 되기 때문.
 		down = true;
-		System.out.println("down");
+		// System.out.println("down");
 		new Thread(() -> {
 			while (down) {
 				y = y + DOWNSPEED;
