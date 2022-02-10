@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 
 /**
  * 
- * @author jeonga-eun 목적 : 색상 테스트
+ * @author jeonga-eun 목적 : 실제 맵 테스트
  */
 
 public class BubbleFrame extends JFrame {
@@ -63,21 +63,19 @@ public class BubbleFrame extends JFrame {
 				// System.out.println("키보드 프레스 : " + e.getKeyCode());
 				// 왼쪽은 37, 오른쪽은 39, 위쪽은 38, 아래쪽은 40
 
-				if (e.getKeyCode() == KeyEvent.VK_RIGHT) {// 39임, 16진수
+				if (e.getKeyCode() == KeyEvent.VK_RIGHT && player.isRightWallCrash() == false) {// 39임, 16진수
 					// 키보드를 누르고 있는 동안 right 메서드를 한 번만 실행하고 싶다.
 					if (!player.isRight()) { // 움직이지 않을 때 움직이기 위해서
 						player.right();
 					}
 
-				} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				} else if (e.getKeyCode() == KeyEvent.VK_LEFT && player.isLeftWallCrash() == false) {
 					if (!player.isLeft()) {
 						player.left();
 					}
 				} else if (e.getKeyCode() == KeyEvent.VK_UP) { // 이것을 막으면 이벤트 루프 등록을 안 함
-					if (!player.isJump()) {
-						System.out.println("count : " + count);
-						count++;
-						player.jump(); // 메서드 내부에서 IF 분기 처리는 이벤트 루프에 등록 되지만 실행되지 않음
+					if (player.isUp() == false && player.isDown() == false) { // 업다운이 false일 때면 점프 가능
+						player.up(); // 메서드 내부에서 IF 분기 처리는 이벤트 루프에 등록 되지만 실행되지 않음
 					}
 				}
 
